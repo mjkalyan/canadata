@@ -1,0 +1,15 @@
+{application, 'canadata', [
+    {description, "An LFE application"},
+    {vsn, git},
+    {registered, []},
+    {mod, {'canadata-app', []}},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {env,[]},
+    {modules, []},
+
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+ ]}.

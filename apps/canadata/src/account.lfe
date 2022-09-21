@@ -12,8 +12,8 @@
 ;;; --------------------------------------------------------------------------
 
 (defun register (password surname given-names)
-  "Registers a user to the Canadata service. This will generate a login UUID (v4) for them, hash
-their password, and store all given personal details in the database."
+  "Registers a user to the Canadata service. This will generate a username for them, hash the given
+password, and store both alongside their given names in a new person row."
   (let* ((username         (make-username))
          ((tuple 'ok hash) (argon2:hash password)))
     (db:with-connection c (db:CREDENTIALS)

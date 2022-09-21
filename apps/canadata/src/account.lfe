@@ -24,7 +24,12 @@ their password, and store all given personal details in the database."
 ;; TODO
 (defun registered? (username)
   "Does this USERNAME exist in the database?"
-  'ok)
+  (let (((tuple 'ok _ result)
+         (db:with-connection c (db:CREDENTIALS)
+           (epgsql:equery c
+                          "SELECT 1 FROM person WHERE username = $1"
+                          (list username)))))
+    (=/= result [])))
 
 (defun verify (username password)
   "Check whether hashing the given PASSWORD matches the USERNAME's stored hash."

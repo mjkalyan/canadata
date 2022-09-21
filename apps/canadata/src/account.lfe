@@ -40,12 +40,13 @@ their password, and store all given personal details in the database."
 ;;; Helpers
 ;;; --------------------------------------------------------------------------
 
-;; TODO use 4-word diceware from EFF https://www.eff.org/files/2016/09/08/eff_short_wordlist_1.txt
 (defun make-username ()
   "Generate a unique but memorable username."
-  (let* ((num-words 4)
-         (word-keys )))
+  ;; TODO use 4-word diceware from EFF https://www.eff.org/files/2016/09/08/eff_short_wordlist_1.txt
+  ;; (let* ((num-words 4)
+  ;;        (word-keys ))
   (base64:encode (crypto:strong_rand_bytes 4)))
+  ;; )
 
 (defun roll-n (d n)
   "Roll a D-sided die N times, returning the results as a list."
